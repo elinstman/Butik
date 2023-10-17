@@ -17,6 +17,7 @@
   padding: 0 10px;
   gap: 10px;
   align-items: center;
+  justify-content: center;
 }
 .product-card img {
   max-width: 100%;
@@ -24,6 +25,7 @@
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
+  justify-self: center;
 }
 .product-card h2 {
   font-size: 13px;
