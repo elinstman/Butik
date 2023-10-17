@@ -42,7 +42,8 @@ function updateCart() {
   cartItems.innerHTML = ""; // Rensa varukorgens innehåll
 
   cart.forEach(function (product) {
-    const cartItem = document.createElement("li");
+    const cartItem = document.createElement("div");
+    cartItem.className = "cart-item-style";
     cartItem.innerHTML = `
         <img src="${product.image}" alt="${product.title}">
         <div class="cart-item-details">
@@ -51,9 +52,7 @@ function updateCart() {
           <p>Antal: ${product.quantity}</p>
         </div>
         <div class="cart-item-actions">
-          <button class="plus">+</button>
-          <button class="minus">-</button>
-          <button class="remove">Ta bort</button>
+          <button class="btn btn-outline-secondary remove">Ta bort</button>
         </div>
       `;
     cartItems.appendChild(cartItem);
@@ -73,7 +72,7 @@ function addToCart(product) {
   updateCart();
 }
 
-// Lyssna på "Lägg till i varukorgen"-klick
+// "Lägg till i varukorgen"
 document.getElementById("add-to-cart").addEventListener("click", function () {
   const productTitle = document.getElementById("product-title").textContent;
   const productPrice = document.getElementById("product-price").textContent;
@@ -87,10 +86,35 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
 
   addToCart(product);
 
-  // Uppdatera varukorgslänken i headern
+  // Uppdatera varukorgsräknaren i headern
   const cartLink = document.getElementById("cart-link");
-  cartLink.textContent = `(${cart.length})`;
+  cartLink.textContent = `(${getTotalCartQuantity()})`;
 });
+
+function getTotalCartQuantity() {
+  return cart.reduce((total, product) => total + product.quantity, 0);
+}
+
+// klick för "Ta bort" -knappen
+document
+  .getElementById("cart-items")
+  .addEventListener("click", function (event) {
+    const clickedElement = event.target;
+    if (clickedElement.classList.contains("remove")) {
+      const productIndex = Array.from(
+        clickedElement.parentNode.parentNode.parentNode.children
+      ).indexOf(clickedElement.parentNode.parentNode);
+
+      // letar upp och tar bort produkten
+      if (productIndex >= 0) {
+        cart.splice(productIndex, 1);
+        // Uppdatera varukorgsgränssnittet
+        updateCart();
+        const cartLink = document.getElementById("cart-link");
+        cartLink.textContent = `(${getTotalCartQuantity()})`;
+      }
+    }
+  });
 
 // Initiera varukorgen
 updateCart();
