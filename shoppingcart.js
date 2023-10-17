@@ -89,8 +89,34 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
 
   // Uppdatera varukorgslänken i headern
   const cartLink = document.getElementById("cart-link");
-  cartLink.textContent = `(${cart.length})`;
+  cartLink.textContent = `(${getTotalCartQuantity()})`;
 });
+
+function getTotalCartQuantity() {
+  return cart.reduce((total, product) => total + product.quantity, 0);
+}
+
+// Lyssna på klick för "Ta bort" -knappen
+document
+  .getElementById("cart-items")
+  .addEventListener("click", function (event) {
+    const clickedElement = event.target;
+    if (clickedElement.classList.contains("remove")) {
+      // Här kan du få indexet för den produkt som ska tas bort
+      const productIndex = Array.from(
+        clickedElement.parentNode.parentNode.parentNode.children
+      ).indexOf(clickedElement.parentNode.parentNode);
+
+      // Här letar du upp och tar bort produkten med den unika identifieraren från varukorgen
+      if (productIndex >= 0) {
+        cart.splice(productIndex, 1);
+        // Uppdatera varukorgsgränssnittet
+        updateCart();
+        const cartLink = document.getElementById("cart-link");
+        cartLink.textContent = `(${getTotalCartQuantity()})`;
+      }
+    }
+  });
 
 // Initiera varukorgen
 updateCart();
