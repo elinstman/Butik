@@ -8,6 +8,16 @@
   margin: 0;
 }
 
+.header {
+  background-color: #ffffff;
+  z-index: 0;
+}
+
+.fs-4 {
+  display: flex;
+  align-items: center;
+}
+
 .images {
   background-image: url("../images/background.jpg");
   height: 400px;
@@ -22,13 +32,22 @@
 .nav-item {
   display: flex;
   height: 20px;
-  //   align-items: center;
+  // align-items: center;
 }
 
 .icon-img {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
+  height: 80%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 4px;
 }

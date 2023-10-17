@@ -16,7 +16,7 @@
   </head>
   <body>
     <header
-      class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      class="d-flex sticky-top flex-wrap justify-content-center align-items-center py-3 mb-4 border-bottom header"
     >
       <a
         href="/"
@@ -35,13 +35,13 @@
         <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li> -->
-        <li class="nav-item" id="cart-icon">
+        <li class="nav-item align-items-center" id="cart-icon">
           <img
             class="icon-img"
             src="icons/Cart-Outline.png"
             alt="Cart symbol. Tryck här för din kundkorg"
           />
-          <a href="#" class="nav-link"></a>
+          <a href="#" class="nav-link" id="cart-link"></a>
         </li>
       </ul>
     </header>
@@ -74,9 +74,9 @@
       <div class="shopping-cart-content">
         <span class="close-cart" id="close-cart">&times;</span>
         <h5>Varukorg</h5>
-        <ul id="cart-items">
+        <div class="cart-items" id="cart-items">
           <!-- Här kommer produkter i varukorgen att visas -->
-        </ul>
+        </div>
       </div>
     </div>
 
