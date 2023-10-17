@@ -1,0 +1,28 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "products";
+  gap: 1.5rem;
+  margin-top: 30px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 400px;
+  justify-content: center;
+  gap: 10px;
+
+  img {
+    size: auto;
+  }
+
+  h2 {
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+}

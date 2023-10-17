@@ -1,0 +1,149 @@
+@charset "UTF-8";
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "products";
+  gap: 1.5rem;
+  margin-top: 30px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 400px;
+  justify-content: center;
+  gap: 10px;
+}
+.product-card img {
+  size: auto;
+}
+.product-card h2 {
+  font-size: 13px;
+}
+.product-card p {
+  font-size: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  overflow: auto;
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1.5fr);
+  gap: 0.7rem;
+  background-color: #fff;
+  margin: 10% auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  max-width: 70%;
+  text-align: center;
+  font-size: 10px;
+}
+.modal-content img {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+.product-info h2 {
+  font-size: 14px;
+}
+
+.close-modal {
+  color: #000;
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+  grid-column: span 2;
+}
+
+/* Allmän stil för shopping cart modal */
+.shopping-cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1;
+  overflow: auto;
+}
+
+.shopping-cart-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  max-width: 300px;
+  border-radius: 5px;
+  /* Anpassa efter dina egna behov */
+  /* ... */
+}
+.shopping-cart-content .close-cart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.shopping-cart-content img {
+  width: 50px;
+}
+.shopping-cart-content h3 {
+  font-size: 18px;
+  margin: 0;
+}
+.shopping-cart-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.shopping-cart-content li {
+  margin: 10px 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.images {
+  background-image: url("../images/background.jpg");
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+}
+
+.nav-pills {
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  height: 20px;
+}
+
+.icon-img {
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=styles.css.map */
