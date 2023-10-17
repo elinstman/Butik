@@ -35,7 +35,11 @@ closeCart.addEventListener("click", function () {
 const cartItems = document.getElementById("cart-items");
 
 // Produkter i varukorgen
-const cart = [];
+let cart = [];
+
+if (localStorage.getItem("cart")) {
+  cart = JSON.parse(localStorage.getItem("cart"));
+}
 
 // Funktion för att uppdatera varukorgen
 function updateCart() {
@@ -52,7 +56,7 @@ function updateCart() {
           <p>Antal: ${product.quantity}</p>
         </div>
         <div class="cart-item-actions">
-          <button class="btn btn-outline-secondary remove">Ta bort</button>
+          <button class="btn btn-outline-secondary btn-sm remove">Ta bort</button>
         </div>
       `;
     cartItems.appendChild(cartItem);
@@ -67,9 +71,9 @@ function addToCart(product) {
   } else {
     product.quantity = 1;
     cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(product));
   }
   updateCart();
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 // "Lägg till i varukorgen"
@@ -107,14 +111,24 @@ document
 
       // letar upp och tar bort produkten
       if (productIndex >= 0) {
-        cart.splice(productIndex, 1);
+        const removedProduct = cart.splice(productIndex, 1)[0];
         // Uppdatera varukorgsgränssnittet
         updateCart();
         const cartLink = document.getElementById("cart-link");
         cartLink.textContent = `(${getTotalCartQuantity()})`;
+
+        removeFromLocalStorage(removedProduct);
       }
     }
   });
+
+function removeFromLocalStorage(product) {
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+  const updatedCart = existingCart.filter(
+    (item) => item.title !== product.title
+  );
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+}
 
 // Initiera varukorgen
 updateCart();
