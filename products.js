@@ -15,7 +15,7 @@ const getProducts = async () => {
       <img src="${product.image}" alt="${product.title}">
       <div class="product-card-details"> 
       <h2>${product.title}</h2>
-      <p>Price: $${product.price}</p>
+      <strong>Price: $${product.price}</strong>
       <p>Rating: ${product.rating.rate}</p>
       </div>
       `;
