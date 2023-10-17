@@ -16,13 +16,19 @@
   gap: 10px;
 }
 .product-card img {
-  size: auto;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .product-card h2 {
   font-size: 13px;
+  flex: 1;
 }
 .product-card p {
   font-size: 10px;
+  flex: 1;
 }
 
 .modal {

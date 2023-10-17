@@ -15,14 +15,20 @@
   gap: 10px;
 
   img {
-    size: auto;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    // size: auto;
   }
 
   h2 {
     font-size: 13px;
+    flex: 1;
   }
 
   p {
     font-size: 10px;
+    flex: 1;
   }
 }
