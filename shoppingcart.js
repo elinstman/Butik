@@ -1,4 +1,3 @@
-// shoppingCartModule.js (din befintliga kod)
 const ShoppingCartModule = (function () {
   const cart = [];
 
@@ -89,8 +88,8 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
   addToCart(product);
 
   // Uppdatera varukorgslänken i headern
-  const cartLink = document.querySelector(".nav-item a");
-  cartLink.textContent = `Varukorg (${cart.length})`;
+  const cartLink = document.getElementById("cart-link");
+  cartLink.textContent = `(${cart.length})`;
 });
 
 // Initiera varukorgen
