@@ -42,7 +42,8 @@ function updateCart() {
   cartItems.innerHTML = ""; // Rensa varukorgens innehåll
 
   cart.forEach(function (product) {
-    const cartItem = document.createElement("li");
+    const cartItem = document.createElement("div");
+    cartItem.className = "cart-item-style";
     cartItem.innerHTML = `
         <img src="${product.image}" alt="${product.title}">
         <div class="cart-item-details">
@@ -51,9 +52,9 @@ function updateCart() {
           <p>Antal: ${product.quantity}</p>
         </div>
         <div class="cart-item-actions">
-          <button class="plus">+</button>
-          <button class="minus">-</button>
-          <button class="remove">Ta bort</button>
+          <button class="btn btn-outline-secondary minus">-</button>
+          <button class="btn btn-outline-secondary plus">+</button>
+          <button class="btn btn-outline-secondary remove">Ta bort</button>
         </div>
       `;
     cartItems.appendChild(cartItem);
