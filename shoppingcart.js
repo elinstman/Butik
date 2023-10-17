@@ -67,8 +67,8 @@ function addToCart(product) {
   } else {
     product.quantity = 1;
     cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(product));
   }
-
   updateCart();
 }
 
