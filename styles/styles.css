@@ -1,12 +1,35 @@
 @charset "UTF-8";
 .products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "products";
   gap: 1.5rem;
   margin-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .products {
+    /* Vid skärmbredder större än eller lika med 768px, visa 4 kolumner */
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 767px) {
+  .products {
+    /* Vid skärmbredder mindre än 768px, visa 3 kolumner */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 576px) {
+  .products {
+    /* Vid skärmbredder mindre än 576px, visa 2 kolumner */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 375px) {
+  .products {
+    /* Vid skärmbredder mindre än 375px, visa 1 kolumn */
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-card {
